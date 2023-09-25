@@ -3,8 +3,9 @@ import { dbDestinos } from '../../../DataBase/destinos'
 import { dbMotoristas } from '../../../DataBase/motoristas'
 import {
   CadastrosContainer,
+  DivInputBaseForm,
   FormContainer,
-  LinhaFormContainer,
+  NavContainer,
   NovaPortariaButton,
 } from './styles'
 
@@ -12,23 +13,23 @@ export function Cadastros() {
   return (
     <div>
       <CadastrosContainer>
-        <span>Cadastros</span>
-        <nav>
+        <NavContainer>
           <button type="button">
             <ListPlus size={24} />
+            Nova Portaria
           </button>
           <button type="button">
             <UserPlus size={24} />
+            Novo Motorista
           </button>
           <button type="button">
             <CirclesThreePlus size={24} />
+            Novo Destino
           </button>
-        </nav>
-      </CadastrosContainer>
+        </NavContainer>
 
-      <FormContainer>
-        <LinhaFormContainer>
-          <div>
+        <FormContainer>
+          <DivInputBaseForm>
             <label htmlFor="motorista">Motorista</label>
             <select name="motorista">
               <option value="" disabled selected hidden>
@@ -42,8 +43,8 @@ export function Cadastros() {
                 )
               })}
             </select>
-          </div>
-          <div>
+          </DivInputBaseForm>
+          <DivInputBaseForm>
             <label htmlFor="destino">Destino</label>
             <select name="destino">
               <option value="" disabled selected hidden>
@@ -57,15 +58,13 @@ export function Cadastros() {
                 )
               })}
             </select>
-          </div>
-        </LinhaFormContainer>
+          </DivInputBaseForm>
 
-        <LinhaFormContainer>
-          <div>
+          <DivInputBaseForm>
             <label htmlFor="data">Data</label>
             <input type="date" name="data" />
-          </div>
-          <div>
+          </DivInputBaseForm>
+          <DivInputBaseForm>
             <label htmlFor="duracao">Duração</label>
             <select name="duracao">
               <option value="" disabled selected hidden>
@@ -76,11 +75,11 @@ export function Cadastros() {
               <option value="2">2</option>
               <option value="3">3</option>
             </select>
-          </div>
-        </LinhaFormContainer>
+          </DivInputBaseForm>
 
-        <NovaPortariaButton type="submit">Gerar Portaria</NovaPortariaButton>
-      </FormContainer>
+          <NovaPortariaButton type="submit">Gerar Portaria</NovaPortariaButton>
+        </FormContainer>
+      </CadastrosContainer>
     </div>
   )
 }

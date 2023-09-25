@@ -8,12 +8,11 @@ export const PortariasContainer = styled.div`
   flex: 1;
   overflow: auto;
 
-  margin: 1rem 0rem;
+  margin: 1.5rem 0rem;
 
   table {
     flex: 1;
     border-collapse: collapse;
-    margin: 1.5rem 0rem;
 
     th {
       background-color: ${(props) => props.theme['gray-600']};
@@ -21,7 +20,6 @@ export const PortariasContainer = styled.div`
       text-align: center;
       color: ${(props) => props.theme['gray-100']};
       font-size: 1.2rem;
-      line-height: 1.6;
 
       &:first-child {
         border-top-left-radius: 8px;

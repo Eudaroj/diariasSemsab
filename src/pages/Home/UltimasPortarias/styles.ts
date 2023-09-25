@@ -7,12 +7,12 @@ export const UltimasPortariasContainer = styled.div`
   align-items: stretch;
   flex: 1;
 
-  margin: 2rem 1rem;
+  margin: 2rem 1rem 0;
 
   table {
     flex: 1;
     border-collapse: collapse;
-    margin: 1.5rem 0rem;
+    margin-top: 1.5rem;
 
     th {
       background-color: ${(props) => props.theme['gray-600']};

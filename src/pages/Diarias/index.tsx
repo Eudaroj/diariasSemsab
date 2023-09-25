@@ -13,8 +13,8 @@ export function Diarias() {
             <th>Destino</th>
             <th>Data da Viagem</th>
             <th>Duração</th>
-            <th>Link Mem</th>
-            <th>Link Por</th>
+            <th>Mem</th>
+            <th>Por</th>
           </tr>
         </thead>
         <tbody>

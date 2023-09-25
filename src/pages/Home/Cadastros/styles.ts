@@ -3,9 +3,13 @@ import styled from 'styled-components'
 export const CadastrosContainer = styled.header`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+  gap: 1rem;
+  overflow: visible;
 
-  margin: 0rem 4rem 1rem;
+  width: 70%;
+  height: 15rem;
+  margin: 4rem auto 3.5rem;
   padding: 0.5rem 2rem;
   border-radius: 8px;
 
@@ -13,56 +17,72 @@ export const CadastrosContainer = styled.header`
   color: ${(props) => props.theme['gray-100']};
 
   font-size: 1.5rem;
+`
 
-  nav {
-    display: flex;
-    gap: 0.5rem;
+export const NavContainer = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: auto;
+
+  span {
+    padding-left: 1.5rem;
   }
 
   button {
-    width: 4rem;
+    width: 10rem;
     height: 3rem;
     border-radius: 8px;
     border: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
   }
 `
+
 export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  margin: 1rem;
+  gap: 1.2rem;
+  margin-right: 6rem;
+  margin-top: -4rem;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 60%;
+  height: 24rem;
 
-  padding: 2rem;
   background: ${(props) => props.theme['gray-900']};
 
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-
-  div {
-    display: flex;
-    gap: 6rem;
-  }
+  font-size: 1rem;
 
   label {
-    width: 5rem;
+    width: 100%;
   }
 
   select,
   input {
-    font-size: 1.2rem;
-    /* font-weight: bold; */
+    font-size: 1rem;
     text-align: center;
 
-    width: 20rem;
-    border-radius: 8px;
+    width: 100%;
+
+    font-size: 0.875rem;
+
+    border: none;
+    border-bottom: 2px solid ${(props) => props.theme['green-300']};
+    background-color: ${(props) => props.theme['gray-900']};
+    color: ${(props) => props.theme['gray-100']};
   }
 `
 export const BaseButton = styled.button`
-  width: 30%;
+  width: 60%;
   height: 2rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   border-radius: 8px;
   border: 0;
 
@@ -82,7 +102,16 @@ export const NovaPortariaButton = styled(BaseButton)`
 `
 
 export const LinhaFormContainer = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: space-evenly;
+`
+
+export const DivInputBaseForm = styled.div`
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin: 0 5rem;
+  gap: 0.5rem;
+
+  width: 80%;
 `
