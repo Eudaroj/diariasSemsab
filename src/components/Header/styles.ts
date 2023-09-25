@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
   background: ${(props) => props.theme['green-500']};
 
   span {
-    font-size: 5vh;
+    font-size: 2.5rem;
     font-weight: 700;
   }
 

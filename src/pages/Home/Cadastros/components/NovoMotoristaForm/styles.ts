@@ -6,29 +6,29 @@ export const FormMotoristaContainer = styled.form`
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
-  gap: 2vh;
-  margin-right: 5vw;
+  gap: 1rem;
+  margin-right: 6rem;
   margin-top: -4rem;
   padding: 1.5vw;
   border-radius: 8px;
-  width: 30vw;
-  height: 50vh;
+  width: 40rem;
+  height: 26rem;
   overflow: auto;
 
   background: ${(props) => props.theme['gray-900']};
 
   font-family: 'Roboto', sans-serif;
-  font-size: 1.8vh;
 
   label {
-    width: 20vw;
+    width: 26rem;
+    font-size: 1rem;
   }
 
   input {
     text-align: center;
-    width: 20vw;
+    width: 26rem;
 
-    font-size: 2.5vh;
+    font-size: 1.2rem;
 
     border: none;
     border-bottom: 2px solid ${(props) => props.theme['green-300']};

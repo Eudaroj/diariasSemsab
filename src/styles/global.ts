@@ -6,18 +6,21 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 
+    font-size: calc((2vw + 2vh) / 3.5);
+
     &::-webkit-scrollbar {
       width: 15px;
     }
 
     &::-webkit-scrollbar-track {
-      background: ${(props) => props.theme['gray-800']};;
+      background: ${(props) => props.theme['gray-900']};
+      border-radius: 8px;
     }
 
     &::-webkit-scrollbar-thumb {
       background: ${(props) => props.theme['gray-700']};
       border-radius: 9px;
-      border: 4px solid ${(props) => props.theme['gray-800']};;
+      border: 4px solid ${(props) => props.theme['gray-900']};;
     }
   }
 
@@ -28,6 +31,5 @@ export const GlobalStyle = createGlobalStyle`
 
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
   }
 `

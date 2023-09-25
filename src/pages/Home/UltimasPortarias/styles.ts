@@ -3,12 +3,12 @@ import styled from 'styled-components'
 export const UltimasPortariasContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: stretch;
   flex: 1;
 
   font-size: 2vh;
-  margin: 5vh 1rem 0;
+  /* margin: 5vh 1rem 0; */
 
   table {
     flex: 1;
@@ -20,7 +20,7 @@ export const UltimasPortariasContainer = styled.div`
       padding: 0.8rem 1rem;
       text-align: center;
       color: ${(props) => props.theme['gray-100']};
-      font-size: 0.875rem;
+      font-size: 2.5vh;
 
       &:first-child {
         border-top-left-radius: 8px;
@@ -35,8 +35,8 @@ export const UltimasPortariasContainer = styled.div`
 
     td {
       padding: 0.4rem 1rem;
-      font-size: 0.875rem;
-      line-height: 0.5;
+      font-size: 2vh;
+      line-height: 1.5;
       text-align: center;
 
       &:nth-child(2) {

@@ -7,8 +7,7 @@ export const MotoristasContainer = styled.div`
   align-items: stretch;
   flex: 1;
   overflow: auto;
-
-  margin: 3vh 0rem;
+  margin: 1.8rem 0rem;
 
   table {
     flex: 1;
@@ -19,27 +18,27 @@ export const MotoristasContainer = styled.div`
       padding: 1rem;
       text-align: center;
       color: ${(props) => props.theme['gray-100']};
-      font-size: 2.3vh;
+      font-size: 1.2rem;
       /* line-height: 1.6; */
 
       &:first-child {
         border-top-left-radius: 8px;
-        padding-left: 1.5vh;
+        padding-left: 1rem;
       }
 
       &:last-child {
         border-top-right-radius: 8px;
-        padding-right: 1.5vh;
+        padding-right: 1rem;
       }
     }
 
     td {
-      padding: 2vh;
-      font-size: 2vh;
+      padding: 1.2rem;
+      font-size: 1rem;
       text-align: center;
 
       &:nth-child(1) {
-        width: 15vw;
+        width: 17rem;
         text-align: left;
       }
     }

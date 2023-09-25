@@ -1,34 +1,34 @@
 import styled from 'styled-components'
 import { BaseButton, DivInputBaseForm } from '../../styles'
 
-export const FormContainer = styled.form`
+export const FormDestinoContainer = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2vh;
-  margin-right: 5vw;
+  gap: 1rem;
+  margin-right: 6rem;
   margin-top: -4rem;
-  padding: 1.5vw;
+  padding: 2rem;
   border-radius: 8px;
-  width: 30vw;
-  height: 50vh;
+  width: 40rem;
+  height: 26rem;
 
   background: ${(props) => props.theme['gray-900']};
 
   font-family: 'Roboto', sans-serif;
-  font-size: 2.5vh;
 
   label {
-    width: 20vw;
+    width: 26rem;
+    font-size: 1rem;
   }
 
   select,
   input {
     text-align: center;
-    width: 20vw;
+    width: 26rem;
 
-    font-size: 1.8vh;
+    font-size: 1.2rem;
 
     border: none;
     border-bottom: 2px solid ${(props) => props.theme['green-300']};

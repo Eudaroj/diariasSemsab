@@ -5,36 +5,35 @@ export const PortariasContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  flex: 1;
   overflow: auto;
-
-  margin: 3vh 0rem;
+  flex: 1;
+  margin: 1.8rem 0rem;
 
   table {
-    flex: 1;
+    /* flex: 1; */
     border-collapse: collapse;
 
     th {
       background-color: ${(props) => props.theme['gray-600']};
-      padding: 2vh;
+      padding: 1rem;
       text-align: center;
       color: ${(props) => props.theme['gray-100']};
-      font-size: 2.3vh;
+      font-size: 1.2rem;
 
       &:first-child {
         border-top-left-radius: 8px;
-        padding-left: 1.5vw;
+        padding-left: 1rem;
       }
 
       &:last-child {
         border-top-right-radius: 8px;
-        padding-right: 1.5vw;
+        padding-right: 1rem;
       }
     }
 
     td {
-      padding: 2vh;
-      font-size: 2vh;
+      padding: 1.2rem;
+      font-size: 1.2rem;
       line-height: 0.3;
       text-align: center;
 

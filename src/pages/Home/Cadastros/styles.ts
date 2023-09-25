@@ -9,7 +9,7 @@ export const CadastrosContainer = styled.header`
 
   width: 70%;
   height: 30vh;
-  margin: 4rem auto 3.5rem;
+  margin: 4rem auto;
   padding: 0.5rem 2rem;
   border-radius: 8px;
 
@@ -22,7 +22,7 @@ export const CadastrosContainer = styled.header`
 export const NavContainer = styled.nav`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   margin: auto;
 
   span {
@@ -30,14 +30,14 @@ export const NavContainer = styled.nav`
   }
 
   button {
-    width: 11vw;
-    height: 6vh;
+    width: 11rem;
+    height: 3rem;
     border-radius: 8px;
     border: 0;
-    font-size: 1vw;
+    font-size: 1rem;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     gap: 1rem;
   }
