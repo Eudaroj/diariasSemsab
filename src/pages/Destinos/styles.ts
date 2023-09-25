@@ -7,9 +7,9 @@ export const DestinosContainer = styled.div`
   align-items: center;
   flex: 1;
   overflow: auto;
+  padding-top: 6vh;
 
-  margin: 0.6rem auto;
-  width: 50%;
+  margin: 3vh auto;
 
   table {
     flex: 1;
@@ -17,24 +17,24 @@ export const DestinosContainer = styled.div`
 
     th {
       background-color: ${(props) => props.theme['gray-600']};
-      padding: 1rem;
+      padding: 2vh;
       text-align: center;
       color: ${(props) => props.theme['gray-100']};
-      font-size: 1.2rem;
+      font-size: 2.3vh;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
     }
 
     td {
-      padding: 1rem;
-      font-size: 0.875rem;
-      text-align: center;
+      padding: 2vh;
+      font-size: 2vh;
+      width: 36vw;
 
-      &:nth-child(1) {
+      /* &:nth-child(1) {
         width: 30%;
         text-align: left;
         font-size: 1rem;
-      }
+      } */
     }
 
     tr {

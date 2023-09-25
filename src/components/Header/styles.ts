@@ -11,17 +11,16 @@ export const HeaderContainer = styled.header`
   background: ${(props) => props.theme['green-500']};
 
   span {
-    font-size: 2rem;
+    font-size: 5vh;
     font-weight: 700;
   }
 
   nav {
     display: flex;
-    /* gap: 0.5rem; */
 
     a {
-      width: 4rem;
-      height: 4rem;
+      width: 4vw;
+      height: 8vh;
 
       display: flex;
       justify-content: center;
