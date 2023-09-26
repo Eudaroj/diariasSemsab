@@ -1,5 +1,5 @@
 import { FileArrowDown } from 'phosphor-react'
-import { portarias } from '../../DataBase/portarias'
+import { dbPortarias } from '../../DataBase/portarias'
 import { PortariasContainer } from './styles'
 
 export function Diarias() {
@@ -18,11 +18,11 @@ export function Diarias() {
           </tr>
         </thead>
         <tbody>
-          {portarias.map((portaria) => {
+          {dbPortarias.map((portaria) => {
             return (
               <tr key={portaria.id}>
                 <td>{portaria.id}</td>
-                <td>{portaria.morotista}</td>
+                <td>{portaria.motorista}</td>
                 <td>{portaria.destino}</td>
                 <td>{portaria.dataViagem}</td>
                 <td>{portaria.duracao}</td>

@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom'
 
 import { FileArrowDown } from 'phosphor-react'
-import { portarias } from '../../../DataBase/portarias'
+import { dbPortarias } from '../../../DataBase/portarias'
 import { CabecalhoContainer, UltimasPortariasContainer } from './styles'
 
 export function UltimasPortarias() {
-  const ultimasCincoPortarias = portarias.slice(-5).reverse()
+  const ultimasCincoPortarias = dbPortarias.slice(-5).reverse()
 
   return (
     <div>
@@ -33,7 +33,7 @@ export function UltimasPortarias() {
               return (
                 <tr key={portaria.id}>
                   <td>{portaria.id}</td>
-                  <td>{portaria.morotista}</td>
+                  <td>{portaria.motorista}</td>
                   <td>{portaria.destino}</td>
                   <td>{portaria.dataViagem}</td>
                   <td>{portaria.duracao}</td>
