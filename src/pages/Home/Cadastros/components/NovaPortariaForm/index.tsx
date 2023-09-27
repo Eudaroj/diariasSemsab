@@ -1,10 +1,21 @@
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import * as zod from 'zod'
 import { dbDestinos } from '../../../../../DataBase/destinos'
 import { dbMotoristas } from '../../../../../DataBase/motoristas'
 import { FormContainer, NovaPortariaButton, NovaPortariaInput } from './styles'
 
+const validacaoNovaPortariaSchema = zod.object({
+  motorista: zod.string(),
+  destino: zod.string(),
+  dataViagem: zod.date(),
+  duracao: zod.string(),
+})
+
 export function NovaPortariaForm() {
-  const { register, handleSubmit, watch } = useForm()
+  const { register, handleSubmit, watch } = useForm({
+    resolver: zodResolver(validacaoNovaPortariaSchema),
+  })
 
   function handleNovaPortaria(data) {
     console.log(data)
