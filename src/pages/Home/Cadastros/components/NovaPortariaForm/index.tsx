@@ -1,55 +1,27 @@
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { dbDestinos } from '../../../../../DataBase/destinos'
 import { dbMotoristas } from '../../../../../DataBase/motoristas'
-import { dbPortarias } from '../../../../../DataBase/portarias'
 import { FormContainer, NovaPortariaButton, NovaPortariaInput } from './styles'
 
 export function NovaPortariaForm() {
-  const [motorista, setMotorista] = useState('')
-  const [destino, setDestino] = useState('')
-  const [dataViagem, setDataViagem] = useState('')
-  const [duracao, setDuracao] = useState('')
+  const { register, handleSubmit, watch } = useForm()
 
-  const handleMotorista = (event: any) => {
-    setMotorista(event.target.value)
-    console.log(event.target.value)
-  }
-  const handleDestino = (event: any) => {
-    setDestino(event.target.value)
-  }
-  const handleDataViagem = (event: any) => {
-    setDataViagem(event.target.value)
-  }
-  const handleDuracao = (event: any) => {
-    setDuracao(event.target.value)
+  function handleNovaPortaria(data) {
+    console.log(data)
   }
 
-  const gerarPortaria = () => {
-    dbPortarias.push({
-      id: String(dbPortarias.length + 1).padStart(3, '0'),
-      motorista,
-      destino,
-      dataViagem,
-      duracao,
-      linkMem: 'www.google.com',
-      linkPor: 'www.google.com',
-    })
+  const motorista = watch('motorista')
+  const destino = watch('destino')
+  const dataViagem = watch('dataViagem')
+  const duracao = watch('duracao')
 
-    console.log(dbPortarias)
-
-    setMotorista('default')
-    setDestino('')
-    setDataViagem('')
-    setDuracao('')
-  }
-
-  console.log(dbPortarias)
+  const isSubmitDisabled = motorista | destino | dataViagem | duracao
 
   return (
-    <FormContainer>
+    <FormContainer name="form" onSubmit={handleSubmit(handleNovaPortaria)}>
       <NovaPortariaInput>
         <label htmlFor="motorista">Motorista</label>
-        <select name="motorista" onChange={handleMotorista}>
+        <select id="motorista" {...register('motorista')}>
           <option value="" disabled selected hidden>
             Selecione o Motorista
           </option>
@@ -62,9 +34,10 @@ export function NovaPortariaForm() {
           })}
         </select>
       </NovaPortariaInput>
+
       <NovaPortariaInput>
         <label htmlFor="destino">Destino</label>
-        <select name="destino" onChange={handleDestino}>
+        <select id="destino" {...register('destino')}>
           <option value="" disabled selected hidden>
             Selecione o Destino
           </option>
@@ -79,12 +52,13 @@ export function NovaPortariaForm() {
       </NovaPortariaInput>
 
       <NovaPortariaInput>
-        <label htmlFor="data">Data</label>
-        <input type="date" name="data" onChange={handleDataViagem} />
+        <label htmlFor="dataViagem">Data</label>
+        <input type="date" id="dataViagem" {...register('dataViagem')} />
       </NovaPortariaInput>
+
       <NovaPortariaInput>
         <label htmlFor="duracao">Duração</label>
-        <select name="duracao" onChange={handleDuracao}>
+        <select id="duracao" {...register('duracao')}>
           <option value="" disabled selected hidden>
             Selecione a Duração
           </option>
@@ -95,11 +69,7 @@ export function NovaPortariaForm() {
         </select>
       </NovaPortariaInput>
 
-      <NovaPortariaButton
-        type="button"
-        onClick={gerarPortaria}
-        onReset={FormContainer}
-      >
+      <NovaPortariaButton type="submit" disabled={!isSubmitDisabled}>
         Gerar Portaria
       </NovaPortariaButton>
     </FormContainer>
