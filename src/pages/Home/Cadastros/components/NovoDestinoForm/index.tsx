@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
+import { dbDestinos } from '../../../../../DataBase/destinos'
 import {
   FormDestinoContainer,
   NovoDestinoButton,
@@ -26,7 +27,10 @@ export function NovoDestinoForm() {
   const isSubmitDisabled = !formularioPreenchido
 
   function handleNovoDestino(data: novoDestinoDados) {
-    console.log(data)
+    const novoDestino: string = data.destino
+
+    dbDestinos.push(novoDestino)
+    console.log(dbDestinos)
     reset()
   }
 
@@ -36,6 +40,7 @@ export function NovoDestinoForm() {
         <label htmlFor="destino">Destino</label>
         <input
           type="text"
+          id="destino"
           placeholder="Digite no padrão: Cidade/UF"
           {...register('destino')}
         />

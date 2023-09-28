@@ -1,6 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
+import { dbMotoristas } from '../../../../../DataBase/motoristas'
 import {
   FormMotoristaContainer,
   NovoMotoristaButton,
@@ -8,7 +9,7 @@ import {
 } from './styles'
 
 const validacaoNovoMotoristaSchema = zod.object({
-  nome: zod.string().min(15, 'Preencha o Nome Completo'),
+  nome: zod.string().min(15, { message: 'Preencha o Nome Completo' }),
   cargo: zod.string().min(5),
   cpf: zod.string().min(11),
   matricula: zod.string().min(3),
@@ -20,10 +21,10 @@ const validacaoNovoMotoristaSchema = zod.object({
   conta: zod.string(),
 })
 
-type novoMotoristaDados = zod.infer<typeof validacaoNovoMotoristaSchema>
+type motoristaDados = zod.infer<typeof validacaoNovoMotoristaSchema>
 
 export function NovoMotoristaForm() {
-  const { register, handleSubmit, watch, reset } = useForm<novoMotoristaDados>({
+  const { register, handleSubmit, watch, reset } = useForm<motoristaDados>({
     resolver: zodResolver(validacaoNovoMotoristaSchema),
     defaultValues: {
       nome: '',
@@ -53,10 +54,22 @@ export function NovoMotoristaForm() {
     (input) => !!input === false,
   )
 
-  console.log(isSubmitDisabled)
+  function handleNovoMotorista(data: motoristaDados) {
+    const novoMotorista: motoristaDados = {
+      nome: data.nome,
+      cargo: data.cargo,
+      cpf: data.cpf,
+      matricula: data.matricula,
+      endereco: data.endereco,
+      telefone: data.telefone,
+      email: data.email,
+      banco: data.banco,
+      agencia: data.agencia,
+      conta: data.conta,
+    }
 
-  function handleNovoMotorista(data) {
-    console.log(data)
+    dbMotoristas.push(novoMotorista)
+
     reset()
   }
 
