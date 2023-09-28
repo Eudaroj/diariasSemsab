@@ -5,13 +5,13 @@ import { NovoDestinoForm } from './components/NovoDestinoForm'
 import { NovoMotoristaForm } from './components/NovoMotoristaForm'
 import { CadastrosContainer, NavContainer } from './styles'
 
-export function Cadastros() {
+export function Cadastros({ adicionarPortaria }) {
   const [formularioAtual, setFormularioAtual] = useState('Portaria')
 
   const renderizarFormulario = () => {
     switch (formularioAtual) {
       case 'Portaria':
-        return <NovaPortariaForm />
+        return <NovaPortariaForm adicionarPortaria={adicionarPortaria} />
       case 'Motorista':
         return <NovoMotoristaForm />
       case 'Destino':

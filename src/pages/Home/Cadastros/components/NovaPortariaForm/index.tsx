@@ -1,8 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import * as zod from 'zod'
+import { Portaria } from '../../..'
 import { dbDestinos } from '../../../../../DataBase/destinos'
 import { dbMotoristas } from '../../../../../DataBase/motoristas'
+import { dbPortarias } from '../../../../../DataBase/portarias'
 import { FormContainer, NovaPortariaButton, NovaPortariaInput } from './styles'
 
 const validacaoNovaPortariaSchema = zod.object({
@@ -11,6 +13,7 @@ const validacaoNovaPortariaSchema = zod.object({
   dataViagem: zod.string(),
   duracao: zod.string(),
 })
+
 // interface novaPortariaDados {
 //   motorista: string
 //   destino: string
@@ -20,7 +23,7 @@ const validacaoNovaPortariaSchema = zod.object({
 
 type novaPortariaDados = zod.infer<typeof validacaoNovaPortariaSchema>
 
-export function NovaPortariaForm() {
+export function NovaPortariaForm({ adicionarPortaria }) {
   const { register, handleSubmit, watch, reset } = useForm<novaPortariaDados>({
     resolver: zodResolver(validacaoNovaPortariaSchema),
     defaultValues: {
@@ -32,7 +35,20 @@ export function NovaPortariaForm() {
   })
 
   function handleNovaPortaria(data: novaPortariaDados) {
-    console.log(data)
+    const novaPortaria: Portaria = {
+      id: String(dbPortarias.length + 1).padStart(3, '0'),
+      motorista: data.motorista,
+      destino: data.destino,
+      dataViagem: data.dataViagem,
+      duracao: data.duracao,
+      linkMem: 'www.google.com.br',
+      linkPor: 'www.google.com.br',
+    }
+
+    dbPortarias.push(novaPortaria)
+
+    adicionarPortaria(novaPortaria)
+
     reset()
   }
 

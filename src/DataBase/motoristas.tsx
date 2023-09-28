@@ -1,4 +1,17 @@
-export const dbMotoristas = [
+export interface motoristaDados {
+  nome: string
+  cargo: string
+  cpf: string
+  matricula: string
+  endereco: string
+  telefone: string
+  email: string
+  banco: string
+  agencia: string
+  conta: string
+}
+
+export const dbMotoristas: motoristaDados[] = [
   {
     nome: 'Matheus Castro Rocha',
     cargo: 'Motorista',
