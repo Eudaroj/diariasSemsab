@@ -41,9 +41,4 @@ export const NovaPortariaInput = styled(DivInputBaseForm)``
 
 export const NovaPortariaButton = styled(BaseButton)`
   background: ${(props) => props.theme['green-500']};
-
-  &:disabled {
-    background: ${(props) => props.theme['gray-800']};
-    cursor: not-allowed;
-  }
 `

@@ -59,6 +59,11 @@ export const BaseButton = styled.button`
   cursor: pointer;
 
   color: ${(props) => props.theme['gray-100']};
+
+  &:disabled {
+    background: ${(props) => props.theme['gray-800']};
+    cursor: not-allowed;
+  }
 `
 
 export const DivInputBaseForm = styled.div`

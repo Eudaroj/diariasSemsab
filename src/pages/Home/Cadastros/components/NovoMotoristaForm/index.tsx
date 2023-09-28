@@ -9,24 +9,55 @@ import {
 
 const validacaoNovoMotoristaSchema = zod.object({
   nome: zod.string().min(15, 'Preencha o Nome Completo'),
-  cargo: zod.string(),
+  cargo: zod.string().min(5),
   cpf: zod.string().min(11),
   matricula: zod.string().min(3),
-  endereco: zod.string(),
-  telefone: zod.string().min(11),
-  email: zod.string(),
+  endereco: zod.string().optional(),
+  telefone: zod.string().optional(),
+  email: zod.string().optional(),
   banco: zod.string(),
   agencia: zod.string(),
   conta: zod.string(),
 })
 
+type novoMotoristaDados = zod.infer<typeof validacaoNovoMotoristaSchema>
+
 export function NovoMotoristaForm() {
-  const { register, handleSubmit, watch, formState } = useForm({
+  const { register, handleSubmit, watch, reset } = useForm<novoMotoristaDados>({
     resolver: zodResolver(validacaoNovoMotoristaSchema),
+    defaultValues: {
+      nome: '',
+      cargo: '',
+      cpf: '',
+      matricula: '',
+      endereco: '',
+      telefone: '',
+      email: '',
+      banco: '',
+      agencia: '',
+      conta: '',
+    },
   })
+
+  const formularioPreenchido = watch([
+    'nome',
+    'cargo',
+    'cpf',
+    'matricula',
+    'banco',
+    'agencia',
+    'conta',
+  ])
+
+  const isSubmitDisabled = formularioPreenchido.some(
+    (input) => !!input === false,
+  )
+
+  console.log(isSubmitDisabled)
 
   function handleNovoMotorista(data) {
     console.log(data)
+    reset()
   }
 
   return (
@@ -54,7 +85,7 @@ export function NovoMotoristaForm() {
       </NovoMotoristaInput>
       <NovoMotoristaInput>
         <label htmlFor="telefone">Telefone</label>
-        <input type="tel" id="telefone" {...register('telefone')} />
+        <input type="number" id="telefone" {...register('telefone')} />
       </NovoMotoristaInput>
       <NovoMotoristaInput>
         <label htmlFor="email">Email</label>
@@ -73,7 +104,9 @@ export function NovoMotoristaForm() {
         <input type="number" id="conta" {...register('conta')} />
       </NovoMotoristaInput>
 
-      <NovoMotoristaButton type="submit">Cadastrar</NovoMotoristaButton>
+      <NovoMotoristaButton type="submit" disabled={isSubmitDisabled}>
+        Cadastrar
+      </NovoMotoristaButton>
     </FormMotoristaContainer>
   )
 }

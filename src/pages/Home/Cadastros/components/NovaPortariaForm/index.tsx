@@ -8,25 +8,44 @@ import { FormContainer, NovaPortariaButton, NovaPortariaInput } from './styles'
 const validacaoNovaPortariaSchema = zod.object({
   motorista: zod.string(),
   destino: zod.string(),
-  dataViagem: zod.date(),
+  dataViagem: zod.string(),
   duracao: zod.string(),
 })
+// interface novaPortariaDados {
+//   motorista: string
+//   destino: string
+//   dataViagem: string
+//   duracao: string
+// }
+
+type novaPortariaDados = zod.infer<typeof validacaoNovaPortariaSchema>
 
 export function NovaPortariaForm() {
-  const { register, handleSubmit, watch } = useForm({
+  const { register, handleSubmit, watch, reset } = useForm<novaPortariaDados>({
     resolver: zodResolver(validacaoNovaPortariaSchema),
+    defaultValues: {
+      motorista: '',
+      destino: '',
+      dataViagem: '',
+      duracao: '',
+    },
   })
 
-  function handleNovaPortaria(data) {
+  function handleNovaPortaria(data: novaPortariaDados) {
     console.log(data)
+    reset()
   }
 
-  const motorista = watch('motorista')
-  const destino = watch('destino')
-  const dataViagem = watch('dataViagem')
-  const duracao = watch('duracao')
+  const formularioPreenchido = watch([
+    'motorista',
+    'destino',
+    'dataViagem',
+    'duracao',
+  ])
 
-  const isSubmitDisabled = motorista | destino | dataViagem | duracao
+  const isSubmitDisabled = formularioPreenchido.some(
+    (input) => !!input === false,
+  )
 
   return (
     <FormContainer name="form" onSubmit={handleSubmit(handleNovaPortaria)}>
@@ -80,7 +99,7 @@ export function NovaPortariaForm() {
         </select>
       </NovaPortariaInput>
 
-      <NovaPortariaButton type="submit" disabled={!isSubmitDisabled}>
+      <NovaPortariaButton type="submit" disabled={isSubmitDisabled}>
         Gerar Portaria
       </NovaPortariaButton>
     </FormContainer>
