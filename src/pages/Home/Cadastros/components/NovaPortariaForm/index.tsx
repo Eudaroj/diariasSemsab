@@ -23,7 +23,11 @@ const validacaoNovaPortariaSchema = zod.object({
 
 type novaPortariaDados = zod.infer<typeof validacaoNovaPortariaSchema>
 
-export function NovaPortariaForm({ adicionarPortaria }) {
+interface NovaPortariaForms {
+  adiconarPortaria: (novaPortaria: Portaria) => void
+}
+
+export function NovaPortariaForm({ adicionarPortaria }: NovaPortariaForms) {
   const { register, handleSubmit, watch, reset } = useForm<novaPortariaDados>({
     resolver: zodResolver(validacaoNovaPortariaSchema),
     defaultValues: {
