@@ -15,7 +15,6 @@ export function Header() {
           console.log('Login Failed')
         }}
       />
-      ;
       <nav>
         <NavLink to="/" title="Início">
           <House size={30} />
