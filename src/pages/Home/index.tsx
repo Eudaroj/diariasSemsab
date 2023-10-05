@@ -17,7 +17,7 @@ export interface Portaria {
 export function Home() {
   const [portarias, setPortarias] = useState(dbPortarias)
 
-  const adicionarPortaria = (novaPortaria: Portaria) => {
+  function adicionarPortaria(novaPortaria: Portaria) {
     setPortarias([...portarias, novaPortaria])
   }
 
