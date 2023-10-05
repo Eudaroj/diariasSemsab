@@ -1,3 +1,4 @@
+import { GoogleLogin } from '@react-oauth/google'
 import { ChalkboardTeacher, House, ListDashes, MapPin } from 'phosphor-react'
 import { NavLink } from 'react-router-dom'
 import { HeaderContainer } from './styles'
@@ -6,7 +7,15 @@ export function Header() {
   return (
     <HeaderContainer>
       <span>Diárias SEMSAB</span>
-
+      <GoogleLogin
+        onSuccess={(credentialResponse) => {
+          console.log(credentialResponse)
+        }}
+        onError={() => {
+          console.log('Login Failed')
+        }}
+      />
+      ;
       <nav>
         <NavLink to="/" title="Início">
           <House size={30} />
